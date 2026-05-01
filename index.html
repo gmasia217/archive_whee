@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>JEONG HWI ARCHIVE</title>
+<title>정휘 아카이브</title>
 
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap');
 
 :root {
-  --bg: #071120; 
-  --bg-sec: #0d1b33; 
-  --bg-card: #152745;
-  --brd: #2a4066;
-  --txt: #ffffff; 
-  --txt-sub: #aab7cc; 
-  --txt-dim: #7b8ba6;
-  --accent: #00e5ff; 
-  --accent-dim: rgba(0, 229, 255, 0.1);
+  /* 파스텔 하늘색 & 화이트 테마 */
+  --bg: #ffffff; 
+  --bg-sec: #f8fbff; 
+  --bg-card: #ffffff;
+  --brd: #e0f0ff;
+  --txt: #334155; 
+  --txt-sub: #64748b; 
+  --txt-dim: #94a3b8;
+  --accent: #38bdf8; 
+  --accent-hov: #0ea5e9;
+  --accent-dim: #e0f2fe;
   --nav-h: 60px;
+  --shadow: 0 4px 20px rgba(56, 189, 248, 0.08);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -29,100 +32,105 @@ body { background: var(--bg); color: var(--txt); font-family: 'Pretendard', sans
 /* NAVIGATION */
 .navbar {
   position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-h);
-  background: rgba(7, 17, 32, 0.8); backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--brd); z-index: 1000;
   display: flex; justify-content: center; align-items: center; gap: 20px;
 }
 .nav-link {
-  color: var(--txt-sub); text-decoration: none; font-size: 13px; font-weight: 600;
+  color: var(--txt-sub); text-decoration: none; font-size: 14px; font-weight: 600;
   padding: 8px 12px; border-radius: 6px; transition: all 0.2s;
 }
 .nav-link:hover, .nav-link.active { color: var(--accent); background: var(--accent-dim); }
 
-/* SECTIONS */
+/* SECTIONS & COMMON */
 section {
   min-height: 100vh;
-  padding: calc(var(--nav-h) + 40px) 20px 40px;
+  padding: calc(var(--nav-h) + 60px) 20px 60px;
   max-width: 800px; margin: 0 auto;
 }
-.section-title {
-  font-family: 'IBM Plex Sans KR', sans-serif; font-size: 24px; font-weight: 700;
-  margin-bottom: 24px; border-bottom: 2px solid var(--brd); padding-bottom: 12px;
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px; border-bottom: 2px solid var(--accent-dim); padding-bottom: 12px;
 }
+.section-title { font-family: 'IBM Plex Sans KR', sans-serif; font-size: 24px; font-weight: 700; color: var(--txt); }
+
+/* BUTTONS */
+.btn {
+  background: var(--bg-card); border: 1px solid var(--accent); color: var(--accent);
+  padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px;
+  cursor: pointer; transition: 0.2s; font-family: inherit;
+}
+.btn:hover { background: var(--accent); color: #fff; }
+.btn.prim { background: var(--accent); color: #fff; }
+.btn.prim:hover { background: var(--accent-hov); }
 
 /* 1. HERO SECTION */
-#home {
-  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-}
+#home { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .hero-img {
-  width: 200px; height: 200px; border-radius: 50%; background: var(--bg-card);
-  border: 2px solid var(--brd); margin-bottom: 24px; object-fit: cover;
-  display: flex; justify-content: center; align-items: center; color: var(--txt-dim); font-size: 12px;
+  width: 180px; height: 180px; border-radius: 50%; background: var(--bg-sec);
+  border: 3px solid var(--accent-dim); margin-bottom: 24px; object-fit: cover; box-shadow: var(--shadow);
 }
-.hero-title { font-family: 'IBM Plex Sans KR', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-.hero-subtitle { font-size: 16px; color: var(--txt-sub); margin-bottom: 32px; }
-.quote-box {
-  background: var(--bg-sec); border: 1px solid var(--brd); padding: 20px; border-radius: 12px;
-  max-width: 500px; width: 100%; font-style: italic; color: var(--txt-sub);
-}
-.total-count {
-  font-size: 48px; font-weight: 700; color: var(--accent); font-family: 'IBM Plex Sans KR', sans-serif;
-  margin: 20px 0;
-}
+.hero-title { font-family: 'IBM Plex Sans KR', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+.total-count { font-size: 40px; font-weight: 700; color: var(--accent); font-family: 'IBM Plex Sans KR', sans-serif; margin: 20px 0; }
 
 /* 2. FILMOGRAPHY */
-.filmo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.filmo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
 .filmo-card {
-  background: var(--bg-sec); border: 1px solid var(--brd); border-radius: 12px;
-  padding: 20px; text-align: center; transition: transform 0.2s;
+  background: var(--bg-card); border: 1px solid var(--brd); border-radius: 16px;
+  padding: 24px; box-shadow: var(--shadow); transition: transform 0.2s;
 }
 .filmo-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-.filmo-poster { width: 100%; aspect-ratio: 3/4; background: var(--bg-card); border-radius: 8px; margin-bottom: 16px; }
-.filmo-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.filmo-char { font-size: 13px; color: var(--accent); margin-bottom: 16px; }
-.btn-link {
-  display: inline-block; padding: 8px 16px; background: transparent; border: 1px solid var(--brd);
-  color: var(--txt); text-decoration: none; font-size: 12px; border-radius: 6px; transition: 0.2s;
+.filmo-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--txt); }
+.filmo-char { font-size: 14px; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+.season-list { display: flex; flex-direction: column; gap: 8px; }
+.season-link {
+  display: block; padding: 10px; background: var(--bg-sec); border: 1px solid var(--brd);
+  color: var(--txt-sub); text-decoration: none; font-size: 13px; border-radius: 8px; transition: 0.2s; text-align: center;
 }
-.btn-link:hover { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.season-link:hover { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-dim); }
 
-/* 3. DASHBOARD */
+/* 3. DASHBOARD (Manual Input included) */
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-.stat-card { background: var(--bg-sec); border: 1px solid var(--brd); border-radius: 12px; padding: 20px; text-align: center; }
-.stat-label { font-size: 12px; color: var(--txt-dim); margin-bottom: 8px; }
-.stat-value { font-size: 24px; font-weight: 700; font-family: 'IBM Plex Sans KR', sans-serif; }
+.stat-card { background: var(--bg-card); border: 1px solid var(--brd); border-radius: 16px; padding: 24px; text-align: center; box-shadow: var(--shadow); }
+.stat-label { font-size: 13px; color: var(--txt-sub); margin-bottom: 8px; font-weight: 600; }
+.stat-value { font-size: 28px; font-weight: 700; font-family: 'IBM Plex Sans KR', sans-serif; color: var(--accent); }
+.manual-input-box { background: var(--bg-sec); padding: 16px; border-radius: 12px; border: 1px dashed var(--accent); display: flex; justify-content: space-between; align-items: center; }
 
 /* 4. GALLERY */
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.gallery-item {
-  aspect-ratio: 1; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--brd);
-  display: flex; justify-content: center; align-items: center; color: var(--txt-dim); font-size: 11px; cursor: pointer;
-}
-.gallery-item:hover { opacity: 0.8; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--brd); }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.delete-btn { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,0.9); border: none; width: 28px; height: 28px; border-radius: 50%; color: #ef4444; cursor: pointer; z-index: 10; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-/* 5. MEMORY LOG (Timeline) */
-.timeline { border-left: 2px solid var(--brd); margin-left: 10px; padding-left: 20px; position: relative; }
-.log-item { margin-bottom: 24px; position: relative; }
-.log-item::before {
-  content: ''; position: absolute; left: -26px; top: 4px; width: 10px; height: 10px;
-  background: var(--bg); border: 2px solid var(--accent); border-radius: 50%;
-}
-.log-date { font-size: 12px; color: var(--txt-sub); margin-bottom: 4px; }
-.log-content { background: var(--bg-sec); border: 1px solid var(--brd); border-radius: 8px; padding: 16px; }
-.log-title { font-weight: 600; margin-bottom: 8px; color: var(--txt); }
-.log-memo { font-size: 13px; color: var(--txt-sub); line-height: 1.5; }
+/* 5. MEMORY LOG */
+.timeline { border-left: 2px solid var(--accent-dim); margin-left: 10px; padding-left: 24px; position: relative; }
+.log-item { margin-bottom: 30px; position: relative; }
+.log-item::before { content: ''; position: absolute; left: -31px; top: 4px; width: 12px; height: 12px; background: #fff; border: 3px solid var(--accent); border-radius: 50%; }
+.log-date { font-size: 13px; color: var(--txt-sub); margin-bottom: 6px; font-weight: 600; }
+.log-content { background: var(--bg-card); border: 1px solid var(--brd); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); position: relative; }
+.log-title { font-weight: 700; margin-bottom: 8px; color: var(--txt); font-size: 16px; }
+.log-memo { font-size: 14px; color: var(--txt-sub); line-height: 1.6; white-space: pre-wrap; }
+.log-del { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--txt-dim); cursor: pointer; font-size: 12px; }
 
-/* MOBILE RESPONSIVE */
+/* MODALS */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 2000; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(3px); }
+.overlay.show { display: flex; }
+.modal { background: var(--bg-card); width: 100%; max-width: 400px; padding: 24px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.modal-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.f-group { margin-bottom: 16px; }
+.f-label { display: block; font-size: 12px; color: var(--txt-sub); margin-bottom: 6px; font-weight: 600; }
+.f-input, .f-textarea { width: 100%; padding: 12px; border: 1px solid var(--brd); border-radius: 8px; font-family: inherit; font-size: 14px; outline: none; background: var(--bg-sec); }
+.f-input:focus, .f-textarea:focus { border-color: var(--accent); }
+.f-textarea { resize: vertical; min-height: 100px; }
+
 @media (max-width: 600px) {
+  .nav-link { padding: 8px; font-size: 13px; }
   .stats-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .nav-link { padding: 8px; font-size: 12px; }
 }
 </style>
 </head>
 <body>
 
-<!-- 고정 내비게이션 -->
 <nav class="navbar">
   <a href="#home" class="nav-link active">Home</a>
   <a href="#filmo" class="nav-link">Filmography</a>
@@ -131,127 +139,297 @@ section {
   <a href="#log" class="nav-link">Log</a>
 </nav>
 
-<!-- 섹션 1: 홈 (대문) -->
+<!-- 1. HOME -->
 <section id="home">
-  <!-- 이미지 경로(src)를 원하시는 정휘 배우님 사진으로 변경하세요 -->
-  <img src="" alt="Profile" class="hero-img">
+  <!-- TODO: 정휘 배우님 사진 링크로 교체 -->
+  <img src="https://via.placeholder.com/180" alt="Jeong Hwi" class="hero-img">
   <div class="hero-title">정휘 관극 아카이브</div>
-  <div class="hero-subtitle">Jeong Hwi Archive</div>
   
-  <div class="total-count" id="display-total-count">총 0회</div>
-  
-  <div class="quote-box" id="random-quote">
-    "대사 또는 가사가 이곳에 표시됩니다."
-  </div>
+  <div class="total-count">총 <span id="display-total">0</span>회 관람</div>
 </section>
 
-<!-- 섹션 2: 필모그래피 -->
+<!-- 2. FILMOGRAPHY -->
 <section id="filmo">
-  <div class="section-title">Filmography</div>
-  <div class="filmo-grid">
-    <!-- 라져 예시 -->
-    <div class="filmo-card">
-      <div class="filmo-poster">포스터 이미지</div>
-      <div class="filmo-title">라져</div>
-      <div class="filmo-char">디디 역</div>
-      <a href="기존_라져_사이트_주소" class="btn-link">도장판 보러가기 →</a>
-    </div>
-    <!-- 너를 위한 글자 예시 -->
-    <div class="filmo-card">
-      <div class="filmo-poster">포스터 이미지</div>
-      <div class="filmo-title">너를 위한 글자</div>
-      <div class="filmo-char">캐릭터 역</div>
-      <a href="기존_너위글_사이트_주소" class="btn-link">도장판 보러가기 →</a>
-    </div>
+  <div class="section-header">
+    <div class="section-title">Filmography</div>
+  </div>
+  <div class="filmo-grid" id="filmo-container">
+    <!-- JS에서 자동으로 가나다순 정렬되어 들어갑니다 -->
   </div>
 </section>
 
-<!-- 섹션 3: 대시보드 -->
+<!-- 3. DASHBOARD -->
 <section id="dash">
-  <div class="section-title">Dashboard</div>
+  <div class="section-header">
+    <div class="section-title">Dashboard</div>
+  </div>
+  
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-label">가장 많이 만난 캐릭터</div>
-      <div class="stat-value">디디 (0회)</div>
+      <div class="stat-label">도장판 연동 기록</div>
+      <div class="stat-value" id="stat-auto">0회</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">최다 방문 극장</div>
-      <div class="stat-value">서경스퀘어 스콘 2관</div>
+      <div class="stat-label">이전 과거 기록 (수동 합산)</div>
+      <div class="stat-value" id="stat-manual">0회</div>
+    </div>
+  </div>
+
+  <div class="manual-input-box">
+    <div>
+      <div style="font-weight: 600; font-size: 14px;">도장판이 없는 과거 관극 기록 추가</div>
+      <div style="font-size: 12px; color: var(--txt-sub);">이전에 보셨던 횟수를 숫자로 입력해두면 총합에 더해집니다.</div>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <input type="number" id="manual-count-input" class="f-input" style="width: 80px; text-align: center;" placeholder="0" min="0">
+      <button class="btn prim" onclick="saveManualCount()">저장</button>
     </div>
   </div>
 </section>
 
-<!-- 섹션 4: 갤러리 -->
+<!-- 4. GALLERY -->
 <section id="gallery">
-  <div class="section-title">Gallery</div>
-  <div class="gallery-grid">
-    <div class="gallery-item">26.04.05 스페셜 커튼콜</div>
-    <div class="gallery-item">26.04.07 커튼콜</div>
-    <div class="gallery-item">직캠 썸네일</div>
-    <div class="gallery-item">직캠 썸네일</div>
-    <div class="gallery-item">직캠 썸네일</div>
-    <div class="gallery-item">직캠 썸네일</div>
+  <div class="section-header">
+    <div class="section-title">Gallery</div>
+    <button class="btn" onclick="addVideoPrompt()">+ 영상 추가</button>
+  </div>
+  <div class="gallery-grid" id="gallery-container">
+    <!-- 영상들이 여기에 추가됩니다 -->
   </div>
 </section>
 
-<!-- 섹션 5: 메모리 로그 -->
+<!-- 5. MEMORY LOG -->
 <section id="log">
-  <div class="section-title">Memory Log</div>
-  <div class="timeline">
-    <div class="log-item">
-      <div class="log-date">2026.04.05 (일) 밤공</div>
-      <div class="log-content">
-        <div class="log-title">라져 - 스페셜 커튼콜</div>
-        <div class="log-memo">이날 애드립 진짜 레전드. 카메라 세팅 새로 해서 노이즈 없이 깔끔하게 찍힘.</div>
-      </div>
-    </div>
-    <div class="log-item">
-      <div class="log-date">2026.04.07 (화) 밤공</div>
-      <div class="log-content">
-        <div class="log-title">라져 - 트리플 적립 데이</div>
-        <div class="log-memo">이전보다 감정선이 훨씬 깊어졌다. 도장 3배 적립 완료.</div>
-      </div>
-    </div>
+  <div class="section-header">
+    <div class="section-title">Memory Log</div>
+    <button class="btn" onclick="openLogModal()">+ 기록 작성</button>
+  </div>
+  <div class="timeline" id="log-container">
+    <!-- 로그들이 여기에 추가됩니다 -->
   </div>
 </section>
+
+<!-- 모달: 로그 작성 -->
+<div class="overlay" id="modal-log">
+  <div class="modal">
+    <div class="modal-title">관극 기록 남기기</div>
+    <div class="f-group">
+      <label class="f-label">날짜</label>
+      <input type="date" id="log-date" class="f-input">
+    </div>
+    <div class="f-group">
+      <label class="f-label">작품 및 회차 (예: 라져 밤공)</label>
+      <input type="text" id="log-title" class="f-input" placeholder="어떤 공연이었나요?">
+    </div>
+    <div class="f-group">
+      <label class="f-label">메모 (애드립, 감상 등)</label>
+      <textarea id="log-memo" class="f-textarea" placeholder="오늘의 디테일을 기록해 보세요."></textarea>
+    </div>
+    <div style="display: flex; gap: 10px; margin-top: 24px;">
+      <button class="btn" style="flex: 1;" onclick="closeModal('modal-log')">취소</button>
+      <button class="btn prim" style="flex: 1;" onclick="saveLog()">저장</button>
+    </div>
+  </div>
+</div>
 
 <script>
-// 1. 랜덤 명대사 기능
-const quotes = [
-  "배우님이 하셨던 인상 깊은 대사를 여기에 적어주세요.",
-  "넘버 가사 중 가장 좋아하는 구절을 추가해 보세요.",
-  "라져 디디 역의 기억에 남는 한 마디."
+// ==========================================
+// 1. 데이터 설정 (필모그래피)
+// ==========================================
+// 여기에 작품과 시즌들을 마음껏 추가하세요! (가나다순은 JS가 알아서 해줍니다)
+const filmography = [
+  {
+    title: "라져",
+    char: "디디 역",
+    seasons: [
+      { name: "2024 라져", link: "https://내_2024_라져_주소.com" },
+      { name: "2026 라져", link: "https://내_2026_라져_주소.com" }
+    ]
+  },
+  {
+    title: "너를 위한 글자",
+    char: "투리 역",
+    seasons: [
+      { name: "2024 너를 위한 글자", link: "https://내_너위글_주소.com" }
+    ]
+  },
+  {
+    title: "구텐버그",
+    char: "더그 역",
+    seasons: [
+      { name: "2023 구텐버그", link: "#" }
+    ]
+  }
 ];
-const quoteBox = document.getElementById('random-quote');
-quoteBox.innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
 
-// 2. 내비게이션 스크롤 활성화 (보고 있는 섹션 메뉴 하이라이트)
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+// ==========================================
+// 2. 초기화 및 로컬 스토리지 로드
+// ==========================================
+let videos = JSON.parse(localStorage.getItem('hwi_videos')) || [];
+let logs = JSON.parse(localStorage.getItem('hwi_logs')) || [];
+let manualCount = parseInt(localStorage.getItem('hwi_manual_count')) || 0;
+// 연동된 도장판 횟수 (현재는 임시값 0. 나중에 json 합산 로직을 여기에 넣으면 됩니다)
+let autoCount = 0; 
 
+function init() {
+  renderFilmo();
+  renderGallery();
+  renderLogs();
+  updateDashboard();
+}
+
+// ==========================================
+// 3. 필모그래피 렌더링 (가나다순 정렬)
+// ==========================================
+function renderFilmo() {
+  const container = document.getElementById('filmo-container');
+  // 가나다순 정렬
+  filmography.sort((a, b) => a.title.localeCompare(b.title));
+  
+  container.innerHTML = filmography.map(f => `
+    <div class="filmo-card">
+      <div class="filmo-title">${f.title}</div>
+      <div class="filmo-char">${f.char}</div>
+      <div class="season-list">
+        ${f.seasons.map(s => `<a href="${s.link}" class="season-link" target="_blank">${s.name} 도장판 →</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// ==========================================
+// 4. 대시보드 (수동 기록 합산)
+// ==========================================
+function updateDashboard() {
+  document.getElementById('manual-count-input').value = manualCount;
+  document.getElementById('stat-manual').innerText = manualCount + "회";
+  document.getElementById('stat-auto').innerText = autoCount + "회";
+  document.getElementById('display-total').innerText = manualCount + autoCount;
+}
+
+function saveManualCount() {
+  const inputVal = parseInt(document.getElementById('manual-count-input').value) || 0;
+  manualCount = inputVal;
+  localStorage.setItem('hwi_manual_count', manualCount);
+  updateDashboard();
+  alert("과거 기록이 저장되었습니다!");
+}
+
+// ==========================================
+// 5. 갤러리 (유튜브 임베드)
+// ==========================================
+function getYouTubeId(url) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function addVideoPrompt() {
+  const url = prompt("유튜브 영상 링크를 붙여넣어 주세요.\n(예: https://youtu.be/... 또는 https://www.youtube.com/watch?v=...)");
+  if (!url) return;
+  
+  const videoId = getYouTubeId(url);
+  if (videoId) {
+    videos.unshift(videoId); // 최신 영상을 맨 앞으로
+    localStorage.setItem('hwi_videos', JSON.stringify(videos));
+    renderGallery();
+  } else {
+    alert("올바른 유튜브 링크가 아닙니다.");
+  }
+}
+
+function deleteVideo(index) {
+  if (confirm("이 영상을 갤러리에서 삭제하시겠습니까?")) {
+    videos.splice(index, 1);
+    localStorage.setItem('hwi_videos', JSON.stringify(videos));
+    renderGallery();
+  }
+}
+
+function renderGallery() {
+  const container = document.getElementById('gallery-container');
+  if (videos.length === 0) {
+    container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--txt-sub); padding: 40px;">등록된 영상이 없습니다. '+ 영상 추가' 버튼을 눌러 추가해 보세요!</div>`;
+    return;
+  }
+  
+  container.innerHTML = videos.map((id, index) => `
+    <div class="video-wrapper">
+      <button class="delete-btn" onclick="deleteVideo(${index})">✕</button>
+      <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>
+    </div>
+  `).join('');
+}
+
+// ==========================================
+// 6. 메모리 로그 (일기장)
+// ==========================================
+function openLogModal() {
+  document.getElementById('log-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('log-title').value = "";
+  document.getElementById('log-memo').value = "";
+  document.getElementById('modal-log').classList.add('show');
+}
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+
+function saveLog() {
+  const date = document.getElementById('log-date').value;
+  const title = document.getElementById('log-title').value;
+  const memo = document.getElementById('log-memo').value;
+  
+  if(!date || !title) return alert("날짜와 회차 정보는 필수입니다!");
+
+  logs.push({ id: Date.now(), date, title, memo });
+  // 날짜 최신순 정렬
+  logs.sort((a, b) => new Date(b.date) - new Date(a.date));
+  localStorage.setItem('hwi_logs', JSON.stringify(logs));
+  
+  closeModal('modal-log');
+  renderLogs();
+}
+
+function deleteLog(id) {
+  if (confirm("이 기록을 삭제하시겠습니까?")) {
+    logs = logs.filter(log => log.id !== id);
+    localStorage.setItem('hwi_logs', JSON.stringify(logs));
+    renderLogs();
+  }
+}
+
+function renderLogs() {
+  const container = document.getElementById('log-container');
+  if (logs.length === 0) {
+    container.innerHTML = `<div style="color: var(--txt-sub); padding: 20px 0;">아직 남겨진 기록이 없습니다.</div>`;
+    return;
+  }
+  
+  container.innerHTML = logs.map(log => `
+    <div class="log-item">
+      <div class="log-date">${log.date.replace(/-/g, '.')}</div>
+      <div class="log-content">
+        <button class="log-del" onclick="deleteLog(${log.id})">삭제</button>
+        <div class="log-title">${log.title}</div>
+        <div class="log-memo">${log.memo}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ==========================================
+// 내비게이션 스크롤 활성화
+// ==========================================
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= (sectionTop - 150)) {
-      current = section.getAttribute('id');
-    }
+  document.querySelectorAll('section').forEach(sec => {
+    if (pageYOffset >= (sec.offsetTop - 150)) current = sec.getAttribute('id');
   });
-
-  navLinks.forEach(link => {
+  document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) {
-      link.classList.add('active');
-    }
+    if (link.getAttribute('href').includes(current)) link.classList.add('active');
   });
 });
 
-// 3. 기존 JSON 데이터 병합 시뮬레이션 (이전 답변에서 설명한 로직 적용부)
-// 실제 구현 시 백업받은 JSON 데이터를 불러와 targetActor 필터링 후 길이를 구해 넣어주면 됩니다.
-const demoTotalCount = 15; // 예시 숫자
-document.getElementById('display-total-count').innerText = `총 ${demoTotalCount}회`;
-
+window.onload = init;
 </script>
 </body>
 </html>
