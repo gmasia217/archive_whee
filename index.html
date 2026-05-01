@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JEONG HWI ARCHIVE</title>
+
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #071120; 
+  --bg-sec: #0d1b33; 
+  --bg-card: #152745;
+  --brd: #2a4066;
+  --txt: #ffffff; 
+  --txt-sub: #aab7cc; 
+  --txt-dim: #7b8ba6;
+  --accent: #00e5ff; 
+  --accent-dim: rgba(0, 229, 255, 0.1);
+  --nav-h: 60px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--txt); font-family: 'Pretendard', sans-serif; line-height: 1.6; overflow-x: hidden; }
+
+/* NAVIGATION */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-h);
+  background: rgba(7, 17, 32, 0.8); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--brd); z-index: 1000;
+  display: flex; justify-content: center; align-items: center; gap: 20px;
+}
+.nav-link {
+  color: var(--txt-sub); text-decoration: none; font-size: 13px; font-weight: 600;
+  padding: 8px 12px; border-radius: 6px; transition: all 0.2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--accent); background: var(--accent-dim); }
+
+/* SECTIONS */
+section {
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 40px) 20px 40px;
+  max-width: 800px; margin: 0 auto;
+}
+.section-title {
+  font-family: 'IBM Plex Sans KR', sans-serif; font-size: 24px; font-weight: 700;
+  margin-bottom: 24px; border-bottom: 2px solid var(--brd); padding-bottom: 12px;
+}
+
+/* 1. HERO SECTION */
+#home {
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+}
+.hero-img {
+  width: 200px; height: 200px; border-radius: 50%; background: var(--bg-card);
+  border: 2px solid var(--brd); margin-bottom: 24px; object-fit: cover;
+  display: flex; justify-content: center; align-items: center; color: var(--txt-dim); font-size: 12px;
+}
+.hero-title { font-family: 'IBM Plex Sans KR', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.hero-subtitle { font-size: 16px; color: var(--txt-sub); margin-bottom: 32px; }
+.quote-box {
+  background: var(--bg-sec); border: 1px solid var(--brd); padding: 20px; border-radius: 12px;
+  max-width: 500px; width: 100%; font-style: italic; color: var(--txt-sub);
+}
+.total-count {
+  font-size: 48px; font-weight: 700; color: var(--accent); font-family: 'IBM Plex Sans KR', sans-serif;
+  margin: 20px 0;
+}
+
+/* 2. FILMOGRAPHY */
+.filmo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.filmo-card {
+  background: var(--bg-sec); border: 1px solid var(--brd); border-radius: 12px;
+  padding: 20px; text-align: center; transition: transform 0.2s;
+}
+.filmo-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.filmo-poster { width: 100%; aspect-ratio: 3/4; background: var(--bg-card); border-radius: 8px; margin-bottom: 16px; }
+.filmo-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.filmo-char { font-size: 13px; color: var(--accent); margin-bottom: 16px; }
+.btn-link {
+  display: inline-block; padding: 8px 16px; background: transparent; border: 1px solid var(--brd);
+  color: var(--txt); text-decoration: none; font-size: 12px; border-radius: 6px; transition: 0.2s;
+}
+.btn-link:hover { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+
+/* 3. DASHBOARD */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.stat-card { background: var(--bg-sec); border: 1px solid var(--brd); border-radius: 12px; padding: 20px; text-align: center; }
+.stat-label { font-size: 12px; color: var(--txt-dim); margin-bottom: 8px; }
+.stat-value { font-size: 24px; font-weight: 700; font-family: 'IBM Plex Sans KR', sans-serif; }
+
+/* 4. GALLERY */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.gallery-item {
+  aspect-ratio: 1; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--brd);
+  display: flex; justify-content: center; align-items: center; color: var(--txt-dim); font-size: 11px; cursor: pointer;
+}
+.gallery-item:hover { opacity: 0.8; }
+
+/* 5. MEMORY LOG (Timeline) */
+.timeline { border-left: 2px solid var(--brd); margin-left: 10px; padding-left: 20px; position: relative; }
+.log-item { margin-bottom: 24px; position: relative; }
+.log-item::before {
+  content: ''; position: absolute; left: -26px; top: 4px; width: 10px; height: 10px;
+  background: var(--bg); border: 2px solid var(--accent); border-radius: 50%;
+}
+.log-date { font-size: 12px; color: var(--txt-sub); margin-bottom: 4px; }
+.log-content { background: var(--bg-sec); border: 1px solid var(--brd); border-radius: 8px; padding: 16px; }
+.log-title { font-weight: 600; margin-bottom: 8px; color: var(--txt); }
+.log-memo { font-size: 13px; color: var(--txt-sub); line-height: 1.5; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-link { padding: 8px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 고정 내비게이션 -->
+<nav class="navbar">
+  <a href="#home" class="nav-link active">Home</a>
+  <a href="#filmo" class="nav-link">Filmography</a>
+  <a href="#dash" class="nav-link">Dashboard</a>
+  <a href="#gallery" class="nav-link">Gallery</a>
+  <a href="#log" class="nav-link">Log</a>
+</nav>
+
+<!-- 섹션 1: 홈 (대문) -->
+<section id="home">
+  <!-- 이미지 경로(src)를 원하시는 정휘 배우님 사진으로 변경하세요 -->
+  <img src="" alt="Profile" class="hero-img">
+  <div class="hero-title">정휘 관극 아카이브</div>
+  <div class="hero-subtitle">Jeong Hwi Archive</div>
+  
+  <div class="total-count" id="display-total-count">총 0회</div>
+  
+  <div class="quote-box" id="random-quote">
+    "대사 또는 가사가 이곳에 표시됩니다."
+  </div>
+</section>
+
+<!-- 섹션 2: 필모그래피 -->
+<section id="filmo">
+  <div class="section-title">Filmography</div>
+  <div class="filmo-grid">
+    <!-- 라져 예시 -->
+    <div class="filmo-card">
+      <div class="filmo-poster">포스터 이미지</div>
+      <div class="filmo-title">라져</div>
+      <div class="filmo-char">디디 역</div>
+      <a href="기존_라져_사이트_주소" class="btn-link">도장판 보러가기 →</a>
+    </div>
+    <!-- 너를 위한 글자 예시 -->
+    <div class="filmo-card">
+      <div class="filmo-poster">포스터 이미지</div>
+      <div class="filmo-title">너를 위한 글자</div>
+      <div class="filmo-char">캐릭터 역</div>
+      <a href="기존_너위글_사이트_주소" class="btn-link">도장판 보러가기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 섹션 3: 대시보드 -->
+<section id="dash">
+  <div class="section-title">Dashboard</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">가장 많이 만난 캐릭터</div>
+      <div class="stat-value">디디 (0회)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">최다 방문 극장</div>
+      <div class="stat-value">서경스퀘어 스콘 2관</div>
+    </div>
+  </div>
+</section>
+
+<!-- 섹션 4: 갤러리 -->
+<section id="gallery">
+  <div class="section-title">Gallery</div>
+  <div class="gallery-grid">
+    <div class="gallery-item">26.04.05 스페셜 커튼콜</div>
+    <div class="gallery-item">26.04.07 커튼콜</div>
+    <div class="gallery-item">직캠 썸네일</div>
+    <div class="gallery-item">직캠 썸네일</div>
+    <div class="gallery-item">직캠 썸네일</div>
+    <div class="gallery-item">직캠 썸네일</div>
+  </div>
+</section>
+
+<!-- 섹션 5: 메모리 로그 -->
+<section id="log">
+  <div class="section-title">Memory Log</div>
+  <div class="timeline">
+    <div class="log-item">
+      <div class="log-date">2026.04.05 (일) 밤공</div>
+      <div class="log-content">
+        <div class="log-title">라져 - 스페셜 커튼콜</div>
+        <div class="log-memo">이날 애드립 진짜 레전드. 카메라 세팅 새로 해서 노이즈 없이 깔끔하게 찍힘.</div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">2026.04.07 (화) 밤공</div>
+      <div class="log-content">
+        <div class="log-title">라져 - 트리플 적립 데이</div>
+        <div class="log-memo">이전보다 감정선이 훨씬 깊어졌다. 도장 3배 적립 완료.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 1. 랜덤 명대사 기능
+const quotes = [
+  "배우님이 하셨던 인상 깊은 대사를 여기에 적어주세요.",
+  "넘버 가사 중 가장 좋아하는 구절을 추가해 보세요.",
+  "라져 디디 역의 기억에 남는 한 마디."
+];
+const quoteBox = document.getElementById('random-quote');
+quoteBox.innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+
+// 2. 내비게이션 스크롤 활성화 (보고 있는 섹션 메뉴 하이라이트)
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= (sectionTop - 150)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').includes(current)) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// 3. 기존 JSON 데이터 병합 시뮬레이션 (이전 답변에서 설명한 로직 적용부)
+// 실제 구현 시 백업받은 JSON 데이터를 불러와 targetActor 필터링 후 길이를 구해 넣어주면 됩니다.
+const demoTotalCount = 15; // 예시 숫자
+document.getElementById('display-total-count').innerText = `총 ${demoTotalCount}회`;
+
+</script>
+</body>
+</html>
