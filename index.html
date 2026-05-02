@@ -337,6 +337,22 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
   });
 
   window.addEventListener('DOMContentLoaded', () => { renderFilmo(); updateDashboard(); renderGallery(); renderLogs(); });
+
+// ✨ 개발 중일 때는 아래 코드를 전체 주석 처리하세요!
+  /*
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(registration => {
+          console.log('✅ ServiceWorker 등록 성공:', registration.scope);
+        })
+        .catch(error => {
+          console.log('❌ ServiceWorker 등록 실패:', error);
+        });
+    });
+  }
+  */
+  
 </script>
 </body>
 </html>
