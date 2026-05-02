@@ -101,7 +101,7 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
 </nav>
 
 <section id="home">
-  <!-- TODO: 정휘 배우님 프로필 사진 링크 -->
+  <!-- 📌 정휘 배우님 프로필 사진 링크 -->
   <img src="./images/whee_profile.jpg" alt="Jeong Hwi" class="hero-img">
   <div class="hero-title">정휘 관극 아카이브</div>
   <div class="total-count">총 <span id="display-total">0</span>회 관람</div>
@@ -171,13 +171,22 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
 
   const targetActor = "정휘"; 
 
-  // 필모그래피 데이터 
-  // 프로필 사진을 넣고, 시즌 버튼 텍스트를 이름만 표시되게 수정
+  // 필모그래피 데이터 (시데레우스 포함!) ‼️극 추가 시 여기 아래에 이름순으로 그 사이에 넣기‼️
   const filmography = [
     {
       title: "데카브리", char: "미하일 역",
       imgUrl: "./Filmography/dekabri_2025/dekabri_2025_profile.jpg",
       seasons: [ { name: "2025 시즌", type: "data", url: "./Filmography/dekabri_2025/data.json", title: "데카브리 (2025 시즌)" } ]
+    },
+    {
+      title: "ROGER", char: "디디 역",
+      imgUrl: "./Filmography/roger_2026/roger_2026_profile.jpg", 
+      seasons: [ { name: "2026 시즌", type: "link", url: "https://gmasia217.github.io/stamp_26roger_v2/" } ]
+    },
+    {
+      title: "시데레우스", char: "케플러 역",
+      imgUrl: "./Filmography/sidereus_2026/sidereus_2026_profile.jpg", 
+      seasons: [ { name: "2026 시즌", type: "link", url: "https://gmasia217.github.io/stamp_26sidereus/" } ]
     },
     {
       title: "어쩌면 해피엔딩", char: "올리버 역",
@@ -188,29 +197,26 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
       title: "엘리펀트 송", char: "마이클 역",
       imgUrl: "./Filmography/elephant_2025/elephant_2025_profile.jpg",
       seasons: [ { name: "2025-2026 시즌", type: "data", url: "./Filmography/elephant_2025/data.json", title: "엘리펀트 송 (25-26)" } ]
-    },
-    {
-      title: "ROGER", char: "디디 역",
-      imgUrl: "./Filmography/roger_2026/roger_2026_profile.jpg", // 라져도 같은 규칙으로 이미지 추가
-      seasons: [ { name: "2026 시즌", type: "link", url: "https://gmasia217.github.io/stamp_26roger_v2/" } ]
     }
   ];
 
-  // 데이터 통합 스캔용 목록
+  // 데이터 통합 스캔용 목록 (라져, 시데레우스 등 나중에 파일 올린 후 주석 해제) ‼️극 추가 시 여기 아래에 백업 파일 경로 넣기‼️
   const dataSources = [
     { url: './Filmography/dekabri_2025/data.json' },
     { url: './Filmography/maybe_2025/data.json' },
     { url: './Filmography/elephant_2025/data.json' },
-    // 👇 라져 백업 파일을 깃허브에 올린 후 주석 해제!
-    { url: './Filmography/roger_2026/roger_backup.json' } 
+    // 👇 백업 파일을 깃허브에 올린 후 아래 주석을 지워주세요!
+    { url: './Filmography/roger_2026/roger_backup.json' },
+    // { url: './Filmography/sidereus_2026/sidereus_backup.json' }
   ];
 
-  // 깔끔한 극장 이름 변환기
+  // 극장 이름 딕셔너리 ‼️극장 추가 시 여기 아래에 극장 이름 순으로 넣기‼️
   const theaterNames = {
-    "scon_1": "NOL 서경스퀘어 스콘 1관",
-    "scon_2": "NOL 서경스퀘어 스콘 2관", // 라져 극장
     "yeonkang": "두산아트센터 연강홀",
-    "yes24stage_3": "예스24스테이지 3관"
+    "scon_1": "NOL 서경스퀘어 스콘 1관",
+    "scon_2": "NOL 서경스퀘어 스콘 2관", 
+    "yes24stage_3": "예스24스테이지 3관",
+    "plus_theater": "플러스씨어터" // ✨ 시데레우스 극장 추가
   };
 
   function renderFilmo() {
@@ -242,11 +248,12 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
         if (!response.ok) continue; 
         
         const data = await response.json();
-        let isRogerBackup = data.records ? true : false;
+        // ✨ 변수명 변경: isStampBoardBackup
+        let isStampBoardBackup = data.records ? true : false;
         let sessions = data.records ? data.records : data.sessions;
         
-        // 라져 데이터 필터링 (입구컷)
-        if (isRogerBackup) {
+        // 도장판 데이터 필터링 (입구컷)
+        if (isStampBoardBackup) {
           let grouped = {};
           sessions.forEach(r => {
             if (r.discount === '교환' || r.discount === '교환/나눔' || r.discount === '나눔') return;
@@ -261,8 +268,13 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
             if (grp.length === 1) sessions.push(grp[0]);
             else { let seated = grp.find(x => x.seatRow !== "" && x.seatNum !== ""); sessions.push(seated || grp[0]); }
           }
-          // 라져 백업 파일에는 theater가 없으므로 임의로 스콘2관 지정
-          data.theater = "scon_2"; 
+          
+          // ✨ 파일 경로에 포함된 단어로 각각 알맞은 극장 매핑 ‼️극 추가 시 여기 아래에 극 별로 극장 이름 넣기‼️
+          if (source.url.includes('roger')) {
+            data.theater = "scon_2"; 
+          } else if (source.url.includes('sidereus')) {
+            data.theater = "plus_theater";
+          }
         }
 
         sessions.forEach(s => {
