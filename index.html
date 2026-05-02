@@ -19,10 +19,30 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap');
 
 :root {
-  --bg: #ffffff; --bg-sec: #f8fbff; --bg-card: #ffffff;
-  --brd: #e0f0ff; --txt: #334155; --txt-sub: #64748b; --txt-dim: #94a3b8;
-  --accent: #38bdf8; --accent-hov: #0ea5e9; --accent-dim: #e0f2fe;
-  --nav-h: 60px; --shadow: 0 4px 20px rgba(56, 189, 248, 0.08);
+  /* 1. 배경 (종이 같은 따뜻한 미색) */
+  --bg: #faf9f6; 
+  --bg-sec: #f2efe9; 
+  --bg-card: #ffffff;
+  
+  /* 2. 텍스트 & 선 (너무 쨍한 검은색 대신 다크 네이비/브라운 계열) */
+  --txt: #2c363f; 
+  --txt-sub: #6b7280; 
+  --txt-dim: #9ca3af;
+  --brd: #e5e0d8; 
+  
+  /* 3. 🎨 메인 컬러 (차분하고 신뢰감 있는 아카이브 블루) */
+  --accent: #3b82f6; 
+  --accent-hov: #2563eb; 
+  --accent-dim: #eff6ff;
+  
+  /* 4. ✨ 서브 포인트 컬러 (아날로그 감성의 웜 오렌지/머스타드) */
+  --point: #f59e0b; 
+  --point-hov: #d97706;
+  --point-dim: #fef3c7;
+  
+  /* 5. 그림자 (은은하고 부드럽게) */
+  --shadow: 0 10px 25px rgba(44, 54, 63, 0.06);
+  --nav-h: 60px; 
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -43,10 +63,21 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
 #home { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .hero-img { width: 180px; height: 180px; border-radius: 50%; background: var(--bg-sec); border: 3px solid var(--accent-dim); margin-bottom: 24px; object-fit: cover; box-shadow: var(--shadow); }
 .hero-title { font-family: 'IBM Plex Sans KR', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
-.total-count { font-size: 40px; font-weight: 700; color: var(--accent); font-family: 'IBM Plex Sans KR', sans-serif; margin: 20px 0; }
+/* 대문 총 관극 횟수를 서브 컬러(오렌지/머스타드)로 변경 */
+.total-count { font-size: 40px; font-weight: 700; color: var(--point); font-family: 'IBM Plex Sans KR', sans-serif; margin: 20px 0; }
 
 .filmo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-.filmo-card { background: var(--bg-card); border: 1px solid var(--brd); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); transition: transform 0.2s; text-align: center; }
+/* 필모그래피 카드 위에 파란색 띠 두르기 */
+.filmo-card { 
+  background: var(--bg-card); 
+  border: 1px solid var(--brd); 
+  border-top: 4px solid var(--accent);
+  border-radius: 16px; 
+  padding: 24px; 
+  box-shadow: var(--shadow); 
+  transition: transform 0.2s; 
+  text-align: center; 
+}
 .filmo-card:hover { transform: translateY(-5px); border-color: var(--accent); }
 .filmo-title { font-size: 18px; font-weight: 700; color: var(--txt); }
 .filmo-profile { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; margin: 16px 0; background: var(--bg-sec); }
@@ -54,11 +85,31 @@ section { min-height: 100vh; padding: calc(var(--nav-h) + 60px) 20px 60px; max-w
 .season-list { display: flex; flex-direction: column; gap: 8px; }
 .season-btn { display: block; padding: 10px; background: var(--bg-sec); border: 1px solid var(--brd); color: var(--txt-sub); text-decoration: none; font-size: 13px; border-radius: 8px; transition: 0.2s; cursor: pointer; font-weight: 600; width: 100%; }
 .season-btn:hover { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-dim); }
+/* 링크로 넘어가는 라져, 시데레우스 도장판 버튼 디자인 분리 */
+.season-btn[target="_blank"] {
+  background: var(--point-dim);
+  color: var(--point-hov);
+  border-color: var(--point-dim);
+}
+.season-btn[target="_blank"]:hover {
+  background: var(--point);
+  color: #fff;
+}
 
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-.stat-card { background: var(--bg-card); border: 1px solid var(--brd); border-radius: 16px; padding: 24px; text-align: center; box-shadow: var(--shadow); }
+/* 대시보드 카드 위에는 오렌지색 띠 두르기 */
+.stat-card { 
+  background: var(--bg-card); 
+  border: 1px solid var(--brd); 
+  border-top: 4px solid var(--point);
+  border-radius: 16px; 
+  padding: 24px; 
+  text-align: center; 
+  box-shadow: var(--shadow); 
+}
 .stat-label { font-size: 13px; color: var(--txt-sub); margin-bottom: 8px; font-weight: 600; }
-.stat-value { font-size: 24px; font-weight: 700; font-family: 'IBM Plex Sans KR', sans-serif; color: var(--accent); }
+/* 대시보드 안의 숫자도 서브 컬러로 변경 */
+.stat-value { font-size: 28px; font-weight: 700; font-family: 'IBM Plex Sans KR', sans-serif; color: var(--point); }
 
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
 .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--brd); }
