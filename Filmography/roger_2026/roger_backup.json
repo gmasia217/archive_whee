@@ -435,11 +435,11 @@
       "seatRow": "3",
       "seatNum": "8",
       "boards": {
-        "b1777463881518": 1
+        "b1777389854902": 1
       },
       "memo": "",
       "_cum": {
-        "b1777463881518": 6
+        "b1777389854902": 6
       },
       "_isMilestone": {}
     },
@@ -455,15 +455,13 @@
       "seatRow": "2",
       "seatNum": "1",
       "boards": {
-        "b1777463881518": 1
+        "b1778147379611": 1
       },
       "memo": "",
       "_cum": {
-        "b1777463881518": 7
+        "b1778147379611": 4
       },
-      "_isMilestone": {
-        "b1777463881518": true
-      }
+      "_isMilestone": {}
     },
     {
       "id": "w669hyiw7",
@@ -472,16 +470,16 @@
       "time": "20:00",
       "cast1": "주민진",
       "cast2": "정휘",
-      "discount": "창작산실할",
+      "discount": "재관할",
       "seatZone": "B",
-      "seatRow": "5",
-      "seatNum": "13",
+      "seatRow": "2",
+      "seatNum": "3",
       "boards": {
-        "b1777389854902": 1
+        "b1778147379611": 1
       },
       "memo": "",
       "_cum": {
-        "b1777389854902": 5
+        "b1778147379611": 5
       },
       "_isMilestone": {}
     },
@@ -497,13 +495,15 @@
       "seatRow": "2",
       "seatNum": "7",
       "boards": {
-        "b1777389854902": 1
+        "b1778147379611": 1
       },
       "memo": "",
       "_cum": {
-        "b1777389854902": 6
+        "b1778147379611": 7
       },
-      "_isMilestone": {}
+      "_isMilestone": {
+        "b1778147379611": true
+      }
     },
     {
       "id": "l43xt4r0n",
@@ -734,14 +734,14 @@
       "seatRow": "",
       "seatNum": "",
       "boards": {
-        "b1778147379611": 1
+        "b1779588938169": 1
       },
-      "memo": "",
+      "memo": "물까치 도장 나눔",
       "_cum": {
-        "b1778147379611": 3
+        "b1779588938169": 3
       },
       "_isMilestone": {
-        "b1778147379611": true
+        "b1779588938169": true
       }
     },
     {
@@ -901,6 +901,192 @@
         "b1777389854902": 4
       },
       "_isMilestone": {}
+    },
+    {
+      "id": "kh22418ye",
+      "createTime": 1779543097264,
+      "date": "2026-05-24",
+      "time": "14:00",
+      "cast1": "기세중",
+      "cast2": "박주혁",
+      "discount": "50%",
+      "seatZone": "B",
+      "seatRow": "6",
+      "seatNum": "4",
+      "boards": {
+        "b1779588938169": 1
+      },
+      "memo": "",
+      "_cum": {
+        "b1779588938169": 1
+      },
+      "_isMilestone": {}
+    },
+    {
+      "id": "knfpt04h1",
+      "createTime": 1779588922302,
+      "date": "2026-05-24",
+      "time": "14:00",
+      "cast1": "기세중",
+      "cast2": "박주혁",
+      "discount": "교환",
+      "seatZone": "",
+      "seatRow": "",
+      "seatNum": "",
+      "boards": {
+        "b1777463881518": 1
+      },
+      "memo": "도장 <-> 재관도움 by 도리 - 🚐",
+      "_cum": {
+        "b1777463881518": 6
+      },
+      "_isMilestone": {}
+    },
+    {
+      "id": "a4mpxpgxa",
+      "createTime": 1779596067753,
+      "date": "2026-05-24",
+      "time": "14:00",
+      "cast1": "기세중",
+      "cast2": "박주혁",
+      "discount": "교환",
+      "seatZone": "",
+      "seatRow": "",
+      "seatNum": "",
+      "boards": {
+        "b1778147379611": 1
+      },
+      "memo": "도장 <-> 50% 할인권 by 이즐 - 🍀",
+      "_cum": {
+        "b1778147379611": 3
+      },
+      "_isMilestone": {
+        "b1778147379611": true
+      }
+    },
+    {
+      "id": "kellhwgs4",
+      "createTime": 1779596122610,
+      "date": "2026-05-24",
+      "time": "14:00",
+      "cast1": "기세중",
+      "cast2": "박주혁",
+      "discount": "교환",
+      "seatZone": "",
+      "seatRow": "",
+      "seatNum": "",
+      "boards": {
+        "b1777389854902": 1
+      },
+      "memo": "도장 <-> 50% 할인권 by 이즐 - 🍀",
+      "_cum": {
+        "b1777389854902": 5
+      },
+      "_isMilestone": {}
+    },
+    {
+      "id": "4juzlfgs0",
+      "createTime": 1779643437089,
+      "date": "2026-05-29",
+      "time": "20:00",
+      "cast1": "기세중",
+      "cast2": "정휘",
+      "discount": "재관할",
+      "seatZone": "B",
+      "seatRow": "0",
+      "seatNum": "5",
+      "boards": {
+        "b1778147379611": 1
+      },
+      "memo": "",
+      "_cum": {
+        "b1778147379611": 6
+      },
+      "_isMilestone": {}
+    },
+    {
+      "id": "ej6rcax52",
+      "createTime": 1779682128118,
+      "date": "2026-05-25",
+      "time": "14:00",
+      "cast1": "고상호",
+      "cast2": "이한솔",
+      "discount": "교환",
+      "seatZone": "",
+      "seatRow": "",
+      "seatNum": "",
+      "boards": {
+        "b1779588938169": 1
+      },
+      "memo": "도장 <-> 창작산실할 도움 by 도리 - 🐬",
+      "_cum": {
+        "b1779588938169": 2
+      },
+      "_isMilestone": {}
+    },
+    {
+      "id": "0jo4dj71e",
+      "createTime": 1779683522580,
+      "date": "2026-05-25",
+      "time": "14:00",
+      "cast1": "고상호",
+      "cast2": "이한솔",
+      "discount": "교환",
+      "seatZone": "",
+      "seatRow": "",
+      "seatNum": "",
+      "boards": {
+        "b1777463881518": 1
+      },
+      "memo": "도장 <-> 재관 도움 by 도리 - 이브",
+      "_cum": {
+        "b1777463881518": 7
+      },
+      "_isMilestone": {
+        "b1777463881518": true
+      }
+    },
+    {
+      "id": "akzau3w6y",
+      "createTime": 1779709938739,
+      "date": "2026-05-31",
+      "time": "16:00",
+      "cast1": "기세중",
+      "cast2": "이한솔",
+      "discount": "50%",
+      "seatZone": "B",
+      "seatRow": "7",
+      "seatNum": "10",
+      "boards": {
+        "b1779588938169": 1
+      },
+      "memo": "",
+      "_cum": {
+        "b1779588938169": 4
+      },
+      "_isMilestone": {}
+    },
+    {
+      "id": "pjw8leb8f",
+      "createTime": 1780049852008,
+      "date": "2026-05-29",
+      "time": "20:00",
+      "cast1": "기세중",
+      "cast2": "정휘",
+      "discount": "교환",
+      "seatZone": "",
+      "seatRow": "",
+      "seatNum": "",
+      "boards": {
+        "b1777389854902": 1
+      },
+      "memo": "도장 <-> 50퍼 할인권 by 이즐 - 🍀",
+      "_cum": {
+        "b1777389854902": 7
+      },
+      "_isMilestone": {
+        "b1777389854902": true
+      }
     }
   ],
   "boards": [
@@ -949,6 +1135,12 @@
     {
       "id": "b1778147379611",
       "name": "8",
+      "initial": 0,
+      "active": true
+    },
+    {
+      "id": "b1779588938169",
+      "name": "9",
       "initial": 0,
       "active": true
     }
@@ -1137,6 +1329,56 @@
         "arko": 1
       },
       "createTime": 1779455557476
+    },
+    {
+      "id": "cks956iz1",
+      "date": "2026-05-24",
+      "type": "sub",
+      "memo": "도장 <-> 재관도움 by 도리 - 🚐",
+      "items": {
+        "re": 1
+      },
+      "createTime": 1779554274969
+    },
+    {
+      "id": "jlluxrmw9",
+      "date": "2026-05-24",
+      "type": "sub",
+      "memo": "도장 <-> 50% 할인권 by 이즐 - 🍀",
+      "items": {
+        "d50": 1
+      },
+      "createTime": 1779606843202
+    },
+    {
+      "id": "oe1dooyou",
+      "date": "2026-05-25",
+      "type": "sub",
+      "memo": "도장 <-> 창작산실할 도움 by 도리 - 🐬",
+      "items": {
+        "arko": 1
+      },
+      "createTime": 1779682355669
+    },
+    {
+      "id": "sny5zw6qr",
+      "date": "2026-05-25",
+      "type": "sub",
+      "memo": "도장 <-> 재관 도움 by 도리 - 이브",
+      "items": {
+        "re": 1
+      },
+      "createTime": 1779683657541
+    },
+    {
+      "id": "1ef6ztxjr",
+      "date": "2026-05-29",
+      "type": "sub",
+      "memo": "도장 <-> 50퍼 할인권 by 이즐 - 🍀",
+      "items": {
+        "d50": 1
+      },
+      "createTime": 1780064250195
     }
   ],
   "walletOrder": {
@@ -1146,7 +1388,19 @@
     "auto_add_qvptvpg6s": 40,
     "yj58fq5pe": 0,
     "9fequ17yt": 50,
-    "n7spyzwqr": 60
+    "n7spyzwqr": 60,
+    "auto_sub_b7g8no443": 50,
+    "auto_add_b7g8no443": 60,
+    "cks956iz1": 0,
+    "auto_sub_kh22418ye": 10,
+    "auto_add_kh22418ye": 20,
+    "auto_ms_a4mpxpgxa_b1778147379611": 30,
+    "jlluxrmw9": 40,
+    "auto_sub_0td3u4uyj": 20,
+    "auto_add_0td3u4uyj": 30,
+    "auto_ms_fjapmeegv_b1779588938169": 40,
+    "oe1dooyou": 0,
+    "sny5zw6qr": 10
   },
   "schedule": [
     {
@@ -1807,7 +2061,7 @@
       "date": "2026-05-29",
       "time": "20:00",
       "skylar": "기세중",
-      "didi": "박주혁"
+      "didi": "정휘"
     },
     {
       "date": "2026-05-30",
@@ -1819,7 +2073,7 @@
       "date": "2026-05-30",
       "time": "18:00",
       "skylar": "주민진",
-      "didi": "박주혁"
+      "didi": "이한솔"
     },
     {
       "date": "2026-05-31",
